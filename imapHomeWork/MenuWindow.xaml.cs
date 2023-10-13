@@ -52,6 +52,7 @@ namespace imapHomeWork
 
                 var folder = client.GetFolder(SpecialFolder.Sent);
                 folder.Open(FolderAccess.ReadWrite);
+
                 IList<UniqueId> uids = folder.Search(SearchQuery.All);
                 List<MimeMessage> messages = new List<MimeMessage>();
 
@@ -66,8 +67,8 @@ namespace imapHomeWork
                     foldListBox.Items.Add(fl.Name);
                 }
 
-                var sortedMessages = messages.OrderBy(message => message.From.ToString());
-                //messListBox.Items.Clear();
+                var sortedMessages = messages.OrderByDescending(message => message.From.ToString());
+                messListBox.Items.Clear();
 
                 foreach (var message in sortedMessages)
                 {
@@ -104,6 +105,14 @@ namespace imapHomeWork
             //{
             //    messListBox.Content = messListBox.Content.ToString() + " is selected.";
             //}
+        }
+
+        private void messListBox_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            Hide();
+
+            msgWindow msgWindow = new msgWindow();
+            msgWindow.Show();
         }
     }
 }

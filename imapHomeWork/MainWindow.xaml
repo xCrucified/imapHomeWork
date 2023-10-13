@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:imapHomeWork"
         mc:Ignorable="d"
-       Title="Auth" Height="320" Width="450">
+       Title="Auth" Height="340" Width="450">
     <Grid Background="Black">
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
