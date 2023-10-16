@@ -27,6 +27,7 @@ namespace imapHomeWork
         private void SingInBtn_Click(object sender, RoutedEventArgs e)
         {
             MenuWindow secondWindow = new MenuWindow(loginTxtBox.Text, passwordTxtBox.Text);
+            msgWindow msg = new msgWindow(passwordTxtBox.Text, loginTxtBox.Text);
             Close();
 
             secondWindow.Show();

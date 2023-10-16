@@ -25,16 +25,24 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <!--#endregion-->
-        <ListBox x:Name="msgListBox" Grid.Column="2" Grid.RowSpan="5" Grid.ColumnSpan="4" Margin="15" Background="LightGray"></ListBox>
+        
+        
+        <ListBox x:Name="msgListBox" Grid.Column="2" Grid.Row="2" Grid.RowSpan="3" Grid.ColumnSpan="4" Margin="15" Background="LightGray" ></ListBox>
 
         <Label Grid.Row="1" Grid.ColumnSpan="2" Content="High Priority" HorizontalAlignment="Left" Margin="15"/>
         <CheckBox Name="isPriority" Grid.Row="1" Background="DarkGray" HorizontalAlignment="Left" VerticalAlignment="Center"/>
 
-        <Button Margin="12" Background="PaleVioletRed" Content="Back" FontWeight="Bold" FontSize="17"/>
-        <Button Grid.Column="5" Grid.Row="5" Margin="12" Background="DarkGray" Content="Send!" FontSize="19" FontWeight="DemiBold" />
+        <Button Margin="12" Background="PaleVioletRed" Content="Back" FontWeight="Bold" FontSize="17" Click="BackBtn_Click"/>
+        <Button Grid.Row="2" Margin="11" Background="Gray" Content="Picture" FontSize="18" FontWeight="DemiBold" Click="PictBtn_Click"/>
+        <Button Grid.Column="5" Grid.Row="5" Margin="12" Background="DarkGray" Content="Send!" FontSize="19" FontWeight="DemiBold" Click="SendBtn_Click"/>
 
-        <Button Grid.Row="2" Margin="11" Background="Gray" Content="Picture" FontSize="18" FontWeight="DemiBold"/>
 
+        <Label Grid.Column="2" Content="To:" FontSize="15" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+        <Label Grid.Row="1" Grid.Column="2" Content="Subject:" FontSize="15" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+        
+        <TextBox Grid.Column="3" Grid.ColumnSpan="3" Margin="11" Background="LightGray" Name="toTxtBox"/>
+        <TextBox Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="3" Margin="11" Background="LightGray" Name="subjTxtBox"/>
+        
         <TextBox Grid.Row="5" Grid.ColumnSpan="5" Background="LightGray" Margin="11" Name="writenMsgTxtBox"/>
     </Grid>
 </Window>

@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -36,6 +37,7 @@ namespace imapHomeWork
             myEmailAddress = login;
             accountPassword = pass;
             client = new ImapClient();
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -74,6 +76,7 @@ namespace imapHomeWork
                 {
                     messListBox.Items.Add($"{message.Date}: {message.Subject} - {new string(message.TextBody)}");
                 }
+
             }
             catch (Exception ex)
             {
@@ -97,22 +100,11 @@ namespace imapHomeWork
             Application.Current.Shutdown();
         }
 
-        private void OnSelected(object sender, RoutedEventArgs e)
+        private void SendMsgBtn_Click(object sender, RoutedEventArgs e)
         {
-            //ListBoxItem messListBox = e.Source as ListBoxItem;
-
-            //if (messListBox != null)
-            //{
-            //    messListBox.Content = messListBox.Content.ToString() + " is selected.";
-            //}
-        }
-
-        private void messListBox_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-            Hide();
-
-            msgWindow msgWindow = new msgWindow();
-            msgWindow.Show();
+            msgWindow msg = new msgWindow(myEmailAddress,accountPassword);
+            Close();
+            msg.Show();
         }
     }
 }
